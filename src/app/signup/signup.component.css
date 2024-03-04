@@ -1,0 +1,308 @@
+main{
+    background-color: #f2f2f2;
+  }
+  @media screen and (max-width: 840px) {
+    .content{
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      width: 70%;
+      height: 75%;
+      border-radius: 3%;
+      position: absolute;
+      justify-content: center;
+      top: 10%;
+      left: 12%;
+      padding: 3%;
+    }
+    .child1{
+      /* background-color: pink; */
+      height: auto;
+      width: auto;
+    }
+    img{
+      height: 10%;
+      width: 25%;
+    }
+    h2{
+      font-family: 'Courier New', Courier, monospace;
+      opacity: 0.7;
+      font-size: 1.2rem;
+    }
+    h5{
+      opacity: 0.8;
+      color: rgb(92, 8, 117);
+    }
+    .text-box{
+      display: flex;
+      position: absolute;
+      /* border: solid red; */
+      top: 39%;
+      /* height: 30%; */
+      justify-content: column;
+      left: 7%;
+    }
+    .text-box1{
+      display: flex;
+      position: absolute;
+      top: 43%;
+      justify-content: column;
+      left: 5%;
+    }
+    h6{
+      opacity: 0.8;
+    }
+    .inputs{
+      display: flex;
+      gap: 2%;
+      position: absolute;
+      top: 20%;
+      margin-bottom: 5%;
+    }
+    #text{
+        display: block;
+        width: 32vw;
+        /* border: solid red; */
+        height:5.5vh;
+    }
+    #text1{
+      display: block;
+      height: 5.5vh;
+      width: 67vw;
+      /* border: solid red; */
+      position: absolute;
+      top: 33%;
+    }
+    .input2{
+      display: flex;
+      height: 5.5vh;
+      /* border: solid red; */
+      gap:2%;
+      position: absolute;
+      top:55%;
+    }
+    .text-box{
+      display: flex;
+      position: absolute;
+      top: 40%;
+      justify-content: column;
+      left: 5%;
+    }
+    .text-box1{
+      display: flex;
+      position: absolute;
+      top: 44%;
+      justify-content: column;
+      left: 3%;
+    }
+    .text-box2{
+      display: flex;
+      position: absolute;
+      top: 64%;
+      justify-content: column;
+      left: 3%;
+      height: 7%;
+      width: 80%;
+    }
+    .c{
+      font-size: 10px;
+      color: black;
+    }
+    .check{
+      display: flex;
+      position: absolute;
+      gap: 3%;
+      width: 50%;
+      /* border: solid seagreen; */
+      top: 74%;
+    }
+    .sign{
+      width: 55%;
+      height: 15%;
+      display: flex;
+      position: absolute;
+      /* border: solid rebeccapurple; */
+      top: 85%;
+    }
+    .button{
+      background-color: blue;
+      color: white;
+      width: 140%;
+      height: 40%;
+    }
+    .button-box1{
+      display: flex;
+      width: 85%;
+    }
+}
+  @media screen and (min-width: 860px) {
+    .content{
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      width: 60%;
+      height: 80%;
+      border-radius: 10px;
+      position: absolute;
+      justify-content: start;
+      padding: 2%;
+      top: 5%;
+      left: 18%;
+    }
+    .child1{
+      width: 40vw;
+      /* justify-content: start; */
+      /* display: flex; */
+      /* border: solid red;  */
+      height: 96%;
+    }
+    img{
+      height: 9%;
+      width: 30%;
+    }
+    .inputs{
+      display: flex;
+      /* border: solid rebeccapurple; */
+      gap: 2%;
+      position: absolute;
+      top: 22%;
+      height: 8%;
+      width: 55%;
+      margin-bottom: 5%;
+    }
+    #text{
+      display: block;
+      width: 14vw;
+      padding-left: 3%;
+      font-size: 15px;
+      height:6.8vh;
+    }
+    .input{
+      display: flex;
+      /* border: solid rebeccapurple; */
+      gap: 2%;
+      position: absolute;
+      top: 34%;
+      height: 8%;
+      width: 10%;
+      margin-bottom: 5%;
+    }
+    #text1{
+      display: block;
+      width: 29vw;
+      font-size: 15px;
+      padding-left: 2%;
+      height:6.8vh;
+    }
+    .text-box{
+      display: flex;
+      position: absolute;
+      top: 42%;
+      justify-content: column;
+      left: 5%;
+    }
+    .text-box1{
+      display: flex;
+      position: absolute;
+      top: 45%;
+      justify-content: column;
+      left: 3%;
+    }
+    .text-box2{
+      display: flex;
+      position: absolute;
+      top: 68%;
+      justify-content: column;
+      left: 3%;
+      height: 7%;
+      width: 60%;
+    }
+    h6{
+      opacity: 0.8;
+      font-size: 12px;
+    }
+    .c{color: black;}
+    h5{
+      opacity: 0.8;
+      color: rgb(92, 8, 117);
+      font-size: 14px
+    }
+    .child2{
+      /* border: solid peru; */
+      width: 19vw;
+      display: flex;
+      position: absolute;
+      height: 50%;
+      background-image: url('https://gcloud.devoteam.com/wp-content/uploads/sites/32/2022/03/google-accounts.png');
+      background-size: cover;
+      top: 25%;
+      left: 66%;
+    }
+    .input2{
+      display: flex;
+      /* border: solid red; */
+      position: absolute;
+      top: 60%;
+      width: 60%;
+      gap:2%;
+    }
+    .check{
+      display: flex;
+      position: absolute;
+      gap: 3%;
+      width: 50%;
+      /* border: solid seagreen; */
+      top: 74%;
+    }
+    .sign{
+      width: 50%;
+      height: 15%;
+      display: flex;
+      position: absolute;
+      /* border: solid rebeccapurple; */
+      top: 85%;
+    }
+    .button {
+      background-color: #0f0872;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .button:hover {
+            background-color: #45a049;
+        }
+
+    .button-box1{
+      display: flex;
+      width: 85%;
+    }
+}
+
+
+
+/* function Value(id, name, number) {
+    this.id = id;
+    this.name = name;
+    this.number = number;
+  }
+  const tmp = [];
+  function fun(id, name, number) {
+    const details = new Value(id, name, number);
+    //tmp.push(details)
+    let same = 0;
+    for(let i=0; i<tmp.length;i++){
+        if(tmp[i].id==id){
+            same=1;
+        }
+    }
+    if (same) console.log('Id already exists');
+    else tmp.push(details)
+  }
+  
+  fun(1, 'Lalith', '7997858566');
+  fun(2, 'Kanta', '7997858502');
+  fun(1, 'Mani', '7997851486');
+  console.log(tmp)
+   */

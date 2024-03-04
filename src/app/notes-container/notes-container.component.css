@@ -1,0 +1,14 @@
+.note-cards-container {
+    display: flex;
+    flex-wrap: wrap; 
+    flex-direction: row;
+    justify-content: space-around; 
+    margin: 100px;
+   
+}
+.note-card{
+    margin: px;
+    padding: 10px;
+    /* overflow: hidden; */
+    word-wrap: break-word;
+}
