@@ -11,4 +11,8 @@
     padding: 10px;
     /* overflow: hidden; */
     word-wrap: break-word;
+    background-color: aquamarine;
+}
+.notecard-cnt{
+    background-color: black;
 }

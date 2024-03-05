@@ -1,45 +1,61 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { last } from 'rxjs';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { UserService } from '../services/user-services/user-service';
+import { Router } from '@angular/router';
+import { ValidationErrors } from '@angular/forms';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  RegisterForm !: FormGroup
+  RegisterForm: FormGroup;
   submitted: boolean = false;
-  passwordMatchValidator: any;
-  ngOnInit():void{
+  ngOnInit(): void {}
 
-  }  constructor(public formBuilder: FormBuilder, public userService:UserService){
-    this.RegisterForm =this.formBuilder.group({
-      firstName:["",[Validators.required,Validators.minLength(3)]],
-      lastName:["",[Validators.required,Validators.minLength(3)]],
-      userName:["",[Validators.required,Validators.email]],
-      password:["",[Validators.required,Validators.minLength(6)]],
-      cnf_pswd: ["", Validators.required, this.passwordMatchValidator]
-    });
+  constructor(private formBuilder: FormBuilder, private userService: UserService, public router: Router) {
+
+    this.RegisterForm = this.formBuilder.group({
+      firstName: ["", [Validators.required, Validators.minLength(3)]],
+      lastName: ["", [Validators.required, Validators.minLength(3)]],
+      userName: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required, Validators.minLength(6)]],
+      cnf_pswd: ["", Validators.required],
+    }
+    // , { validators: this.passwordMatch }
+    );
   }
-
   
-  get f(){
-    return this.RegisterForm.controls
+  // passwordMatch(control: AbstractControl): ValidationErrors | null {
+  //   const password = control.get('password')?.value;
+  //   const cnf_pswd = control.get('cnf_pswd')?.value;
+  //   return password === cnf_pswd ? null : { passwordMismatch: true };
+  // }
+  get f() {
+    return this.RegisterForm.controls;
   }
-  registerUser(){
-    this.submitted=true;
-    console.log(this.RegisterForm.value)
-    const{firstName, lastName, email, password}=this.RegisterForm.value
+
+ 
+
+  registerUser() {
+    this.submitted = true;
+    if (this.RegisterForm.invalid) {
+      return;
+    }
+    const { firstName, lastName, userName, password, cnf_pswd } = this.RegisterForm.value;
     this.userService.signupUser({
-      "firstName":firstName,
-      "lastName":lastName,
-      "email": email,
-      "password" : password,
-      "service" : "advance"
-    }).subscribe((result)=>{console.log(result)},(error)=>{console.log(error)})
-    console.log(this.RegisterForm.value)
+      "firstName": firstName,
+      "lastName": lastName,
+      "email": userName,
+      "password": password,
+      "cnf_pswd": cnf_pswd,
+      "service": "advance"
+    }).subscribe(
+      (result) => { console.log(result);
+      this.router.navigate([""]) },
+      (error) => { console.log(error); }
+    );
+    console.log(this.RegisterForm.value);
   }
-  
+
 }

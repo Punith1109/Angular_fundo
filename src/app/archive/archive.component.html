@@ -1,1 +1,5 @@
-<p>archive works!</p>
+<div class="aNotes">
+    <div *ngFor="let note of filteredArchivedNotes">
+        <app-note-card [noteDetails]="note"></app-note-card>
+    </div>
+</div>

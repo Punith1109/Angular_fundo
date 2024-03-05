@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotesContainerComponent } from './notes-container/notes-container.component';
 import { TrashComponent } from './trash/trash.component';
 import { NotecardComponent } from './notecard/notecard.component';
+import { ArchiveComponent } from './archive/archive.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ component:SigninComponent
       path: "notecard",
       component: NotecardComponent
     },
+    {
+      path:"archeive",
+      component: ArchiveComponent
+    }
     
   ]
 }

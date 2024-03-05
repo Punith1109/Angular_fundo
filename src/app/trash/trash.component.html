@@ -1,1 +1,5 @@
-<p>trash works!</p>
+<div class="dNotes">
+    <div  *ngFor="let note of deletedNotes">
+          <app-note-card [noteDetails]="note"></app-note-card>
+    </div>
+</div>

@@ -8,18 +8,36 @@ export class HttpService {
   baseUrl: string = "https://fundoonotes.incubation.bridgelabz.com/api"
   private authHeader = new HttpHeaders({
     'Accept': "application/json",
-    // Authorization: localStorage.getItem('accessToken') || ""
-    Authorization: "ri4uwtVGoVspeXqrCV4EQc3LtVYgCTDKWIssJMvhilmTrOABx1kVyCmTZeGpmk1W"
+    
+    Authorization: localStorage.getItem("token") || ""
   })
   constructor(public http: HttpClient) {}
   loginApi(data: object) {
-    return this.http.post(`${this.baseUrl}/user/login`,data)
+    return this.http.post(`${this.baseUrl}/user/login`,data, {headers:this.authHeader})
   }
   signupApi(data:object){
-    return this.http.post(`${this.baseUrl}/user/userSignup`,data)
+    return this.http.post(`${this.baseUrl}/user/userSignUp`,data,{headers:this.authHeader})
   }
   getNoteList(){
     return this.http.get(`${this.baseUrl}/notes/getNotesList`,{headers : this.authHeader})
+  }
+  addNote(data: object){
+    return this.http.post( `${this.baseUrl}/notes/addNotes`,data,{headers:this.authHeader})
+  }
+
+  archiveNote(requestBody: object) {
+    return this.http.post(`${this.baseUrl}/notes/archiveNotes`, requestBody, { headers: this.authHeader });
+  }
+
+  getArchivedNotes() {
+    return this.http.get(`${this.baseUrl}/notes/getArchiveNotesList`, { headers: this.authHeader });
+  }
+
+  deleteNote(requestBody: object) {
+    return this.http.post(`${this.baseUrl}/notes/trashNotes`, requestBody, { headers: this.authHeader });
+  }
+  getDeletedNotes() {
+    return this.http.get(`${this.baseUrl}/notes/getTrashNotesList`, { headers: this.authHeader });
   }
 
 }
