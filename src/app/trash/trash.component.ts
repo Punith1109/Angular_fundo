@@ -17,6 +17,7 @@ interface NoteObj {
 })
 export class TrashComponent {
   deletedNotes: NoteObj[]= [];
+  filteredDeletedNotes: NoteObj[]=[];
 
   constructor(public noteService: NoteService) {
     this.getDeletedNotes(); }
@@ -25,7 +26,10 @@ export class TrashComponent {
     this.noteService.getDeletedNotesCall().subscribe(
       (result: any)=>{
         this.deletedNotes=result.data.data;
-       console.log(this.deletedNotes);},
+        console.log(this.deletedNotes);
+        
+        this.filteredDeletedNotes=this.deletedNotes.filter(notes => notes.isDeleted==true);
+       console.log(this.filteredDeletedNotes);},
       error => {
         console.error('Error fetching deleted notes:', error);
       }

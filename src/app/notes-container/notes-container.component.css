@@ -2,17 +2,22 @@
     display: flex;
     flex-wrap: wrap; 
     flex-direction: row;
-    justify-content: space-around; 
+    margin-top: 0px;
     margin: 100px;
+    width: 100%;
+    height: 100%;
    
 }
 .note-card{
     margin: px;
     padding: 10px;
-    /* overflow: hidden; */
+   
     word-wrap: break-word;
-    background-color: aquamarine;
 }
 .notecard-cnt{
     background-color: black;
+}
+.body{
+    width:100vw;
+    height: 100vh;
 }

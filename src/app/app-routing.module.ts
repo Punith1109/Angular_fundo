@@ -31,7 +31,7 @@ component:SigninComponent
       component: NotecardComponent
     },
     {
-      path:"archeive",
+      path:"archive",
       component: ArchiveComponent
     }
     

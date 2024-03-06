@@ -15,7 +15,7 @@ interface NoteObj {
 }
 
 @Component({
-  selector: 'app-note card',
+  selector: 'app-notecard',
   templateUrl: './notecard.component.html',
   styleUrls: ['./notecard.component.css']
 })
@@ -36,9 +36,9 @@ export class NotecardComponent {
      archiveNote(noteDetails:any):void {
       this.noteDetails.isArchived = true;
     console.log(noteDetails);
-     const obj1={
+       const obj1={
       "noteIdList":[this.noteDetails.id],
-      "isArchived":true
+      "isArchived":true,
      }
      this.noteService.archiveNoteCall(obj1).subscribe(
       ()=>{
@@ -51,10 +51,14 @@ export class NotecardComponent {
     deleteNote(noteDetails : any): void{
       this.noteDetails.isDeleted = true;
       console.log(noteDetails);
+    console.log("HII");
+    
       const obj1={
         "noteIdList":[this.noteDetails.id],
         "isDeleted":true
       }
+      console.log(obj1);
+      
       this.noteService.deleteNoteCall(obj1).subscribe(
         ()=>{console.log("Note Deleted successfully")},
         error =>{console.log(error);}

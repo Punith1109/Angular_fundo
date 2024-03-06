@@ -8,7 +8,7 @@ interface NoteObj {
   color: string,
   id: string,
   isArchived: boolean,
-  isDeleted: boolean
+  isDeleted: false
 }
 
 @Component({
@@ -30,7 +30,7 @@ export class ArchiveComponent {
       this.noteService.getArchivedNotesCall().subscribe(
         (result: any)=>{
           this.archivedNotes=result.data.data;
-          this.filteredArchivedNotes=this.archivedNotes.filter(notes => notes.isArchived && !notes.isDeleted);
+          this.filteredArchivedNotes=this.archivedNotes.filter(notes => notes.isArchived);
          console.log(this.archivedNotes);},
         error => {
           console.error('Error fetching archived notes:', error);
