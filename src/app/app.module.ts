@@ -24,6 +24,7 @@ import { NotecardComponent } from './notecard/notecard.component';
 import { KeepViewComponent } from './keep-view/keep-view.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ArchiveComponent } from './archive/archive.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     TrashComponent,
     NotesContainerComponent,
     NotecardComponent,
-    KeepViewComponent
+    KeepViewComponent,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,

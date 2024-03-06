@@ -15,7 +15,7 @@ interface NoteObj {
 }
 
 @Component({
-  selector: 'app-note-card',
+  selector: 'app-note card',
   templateUrl: './notecard.component.html',
   styleUrls: ['./notecard.component.css']
 })
