@@ -25,6 +25,8 @@ import { KeepViewComponent } from './keep-view/keep-view.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ArchiveComponent } from './archive/archive.component';
+
+import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +43,7 @@ import { ArchiveComponent } from './archive/archive.component';
   ],
   imports: [
     BrowserModule,
+    MatMenuModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,

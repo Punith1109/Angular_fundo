@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NoteService } from '../services/note-service/note-service.service'; 
 import { ARCHIVE_ICON, BRUSH_ICON, COLLABRATOR_ICON, COLOR_PALATTE_ICON, IMG_ICON, MORE_ICON, REDO_ICON, REMINDER_ICON, TICK_ICON, UNDO_ICON } from 'src/app/assests/svg-icons';
 import { NotecardComponent } from '../notecard/notecard.component';
+import { ViewModeService } from '../services/viewmode-service/viewmodeservice.service';
 
  export interface NoteObj {
   "title":string,
@@ -22,11 +23,13 @@ import { NotecardComponent } from '../notecard/notecard.component';
 export class NotesContainerComponent {
   noteList: NoteObj[] = [];
   filteredNoteList:NoteObj[]=[]
+  viewMode:boolean=true
 
   constructor(
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer,
     public noteService: NoteService,
+    public viewModeService:ViewModeService
     ) {
     // Register icons
     iconRegistry.addSvgIconLiteral('tick-icon', sanitizer.bypassSecurityTrustHtml(TICK_ICON));
@@ -39,6 +42,7 @@ export class NotesContainerComponent {
     iconRegistry.addSvgIconLiteral('more-icon', sanitizer.bypassSecurityTrustHtml(MORE_ICON));
     iconRegistry.addSvgIconLiteral('undo-icon', sanitizer.bypassSecurityTrustHtml(UNDO_ICON));
     iconRegistry.addSvgIconLiteral('redo-icon', sanitizer.bypassSecurityTrustHtml(REDO_ICON));
+    this.viewModeService.viewMode$.subscribe(mode=>this.viewMode=mode)
   }
  
 
@@ -48,6 +52,16 @@ export class NotesContainerComponent {
     this.filteredNoteList=this.noteList.filter(notes => !notes.isArchived && !notes.isDeleted)
     console.log(this.noteList);
     console.log(this.filteredNoteList);
+    alert(this.viewMode)
+  if(this.viewMode){
+    const noteCardsContainer = document.querySelector(".note-cards-container.list-view") as HTMLElement;
+    alert(noteCardsContainer+"samplel")
+    if (noteCardsContainer) {
+      noteCardsContainer.style.width = "400px";
+    }
+    
+  }
+    
     },(error)=>{console.log(error)})
   }
 

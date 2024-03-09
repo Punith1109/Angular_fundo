@@ -37,7 +37,7 @@ main{
       display: flex;
       position: absolute;
       /* border: solid red; */
-      top: 39%;
+      top: 70%;
       /* height: 30%; */
       justify-content: column;
       left: 7%;
@@ -77,9 +77,9 @@ main{
       display: flex;
       height: 5.5vh;
       /* border: solid red; */
-      gap:2%;
+      gap:2;
       position: absolute;
-      top:55%;
+      top:35%;
     }
     .text-box{
       display: flex;
@@ -113,7 +113,6 @@ main{
       position: absolute;
       gap: 3%;
       width: 50%;
-      /* border: solid seagreen; */
       top: 74%;
     }
     .sign{
@@ -121,7 +120,6 @@ main{
       height: 15%;
       display: flex;
       position: absolute;
-      /* border: solid rebeccapurple; */
       top: 85%;
     }
     .button{
@@ -151,9 +149,6 @@ main{
     }
     .child1{
       width: 40vw;
-      /* justify-content: start; */
-      /* display: flex; */
-      /* border: solid red;  */
       height: 96%;
     }
     img{
@@ -162,7 +157,6 @@ main{
     }
     .inputs{
       display: flex;
-      /* border: solid rebeccapurple; */
       gap: 2%;
       position: absolute;
       top: 22%;
@@ -179,12 +173,10 @@ main{
     }
     .input{
       display: flex;
-      /* border: solid rebeccapurple; */
-      gap: 2%;
+      
       position: absolute;
       top: 34%;
       height: 8%;
-      width: 10%;
       margin-bottom: 5%;
     }
     #text1{
@@ -192,12 +184,14 @@ main{
       width: 29vw;
       font-size: 15px;
       padding-left: 2%;
-      height:6.8vh;
+      margin-top: 40px;
+      padding-top: 2px;
+      height:7.8vh;
     }
     .text-box{
       display: flex;
       position: absolute;
-      top: 42%;
+      top: 48%;
       justify-content: column;
       left: 5%;
     }
@@ -281,28 +275,8 @@ main{
 }
 
 
-
-/* function Value(id, name, number) {
-    this.id = id;
-    this.name = name;
-    this.number = number;
-  }
-  const tmp = [];
-  function fun(id, name, number) {
-    const details = new Value(id, name, number);
-    //tmp.push(details)
-    let same = 0;
-    for(let i=0; i<tmp.length;i++){
-        if(tmp[i].id==id){
-            same=1;
-        }
-    }
-    if (same) console.log('Id already exists');
-    else tmp.push(details)
-  }
-  
-  fun(1, 'Lalith', '7997858566');
-  fun(2, 'Kanta', '7997858502');
-  fun(1, 'Mani', '7997851486');
-  console.log(tmp)
-   */
+#textcontent{
+  position: relative;
+  display: flex;
+  top:34%;
+} 

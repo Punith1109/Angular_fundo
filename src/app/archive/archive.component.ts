@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../services/note-service/note-service.service';
 import { NotecardComponent } from '../notecard/notecard.component';
+import { ARCHIVE_ICON, EDIT_ICON, NOTE_ICON, REMINDER_ICON, TRASH_ICON } from 'src/app/assests/svg-icons';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
 
 interface NoteObj {
   title: string,
@@ -8,7 +11,8 @@ interface NoteObj {
   color: string,
   id: string,
   isArchived: boolean,
-  isDeleted: false
+  isDeleted: boolean,
+
 }
 
 @Component({
@@ -20,7 +24,9 @@ export class ArchiveComponent {
   archivedNotes: NoteObj[] = [];
 
   filteredArchivedNotes: NoteObj[]=[];
-  constructor(public noteService: NoteService) {}
+  constructor(public noteService: NoteService,iconRegistry: MatIconRegistry, public sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIconLiteral('trash-icon', sanitizer.bypassSecurityTrustHtml(TRASH_ICON));
+  }
 
   ngOnInit(): void {
     this.getArchivedNotes();
@@ -30,12 +36,18 @@ export class ArchiveComponent {
       this.noteService.getArchivedNotesCall().subscribe(
         (result: any)=>{
           this.archivedNotes=result.data.data;
-          this.filteredArchivedNotes=this.archivedNotes.filter(notes => notes.isArchived);
+          this.filteredArchivedNotes=this.archivedNotes.filter(notes => notes.isArchived && !notes.isDeleted);
          console.log(this.archivedNotes);},
         error => {
           console.error('Error fetching archived notes:', error);
         }
       );
     }
+
+    moveToDashboard(note: NoteObj): void {
+      console.log('Moving note back to dashboard:', note);
+    }
+
+
   }
 

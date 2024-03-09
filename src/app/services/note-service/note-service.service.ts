@@ -45,6 +45,10 @@ export class NoteService {
   {
     return this.httpService.deleteNote(data);
   }
-
-
+  deleteNoteCallpermanent(data:object){
+    return this.httpService.deletep(data)
+  }
+  colorNoteCall(data: object){
+    return this.httpService.changeColor(data);
+  }
 }

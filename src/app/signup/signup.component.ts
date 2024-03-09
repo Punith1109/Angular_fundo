@@ -22,15 +22,9 @@ export class SignupComponent implements OnInit {
       password: ["", [Validators.required, Validators.minLength(6)]],
       cnf_pswd: ["", Validators.required],
     }
-    // , { validators: this.passwordMatch }
+    
     );
   }
-  
-  // passwordMatch(control: AbstractControl): ValidationErrors | null {
-  //   const password = control.get('password')?.value;
-  //   const cnf_pswd = control.get('cnf_pswd')?.value;
-  //   return password === cnf_pswd ? null : { passwordMismatch: true };
-  // }
   get f() {
     return this.RegisterForm.controls;
   }

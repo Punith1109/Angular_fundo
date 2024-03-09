@@ -13,10 +13,10 @@ export class HttpService {
   })
   constructor(public http: HttpClient) {}
   loginApi(data: object) {
-    return this.http.post(`${this.baseUrl}/user/login`,data, {headers:this.authHeader})
+    return this.http.post(`${this.baseUrl}/user/login`,data)
   }
   signupApi(data:object){
-    return this.http.post(`${this.baseUrl}/user/userSignUp`,data,{headers:this.authHeader})
+    return this.http.post(`${this.baseUrl}/user/userSignUp`,data)
   }
   getNoteList(){
     return this.http.get(`${this.baseUrl}/notes/getNotesList`,{headers : this.authHeader})
@@ -38,6 +38,12 @@ export class HttpService {
   }
   getDeletedNotes() {
     return this.http.get(`${this.baseUrl}/notes/getTrashNotesList`, { headers: this.authHeader });
+  }
+  deletep(requestBody:object){
+    return this.http.post(`${this.baseUrl}/notes/deleteForeverNotes`, requestBody, { headers: this.authHeader })
+  }
+  changeColor(colorNote: object){
+    return this.http.post(`${this.baseUrl}/notes/changesColorNotes`,colorNote, {headers: this.authHeader});
   }
 
 }

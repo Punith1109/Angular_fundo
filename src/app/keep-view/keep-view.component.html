@@ -24,24 +24,36 @@
             fontIcon="refresh"
             id="icons"
           ></mat-icon>
-          <mat-icon
+          <mat-icon *ngIf="!gridView"
             aria-hidden="false"
             aria-label="Example list-view icon"
             fontIcon="list-view"
             class="icon"
+            (click)="changeview()"
           ></mat-icon>
+          <mat-icon *ngIf="gridView"
+            aria-hidden="false"
+            aria-label="Example list-view icon"
+            svgIcon="grid-view"
+            class="icon"
+            (click)="changeview()"
+          ></mat-icon>
+
           <mat-icon
             aria-hidden="false"
             aria-label="Example settings icon"
             fontIcon="settings"
             class="icon"
           ></mat-icon>
-          <mat-icon
+          <!-- <mat-icon
             aria-hidden="false"
             aria-label="Example app icon"
             fontIcon="apps"
             class="appicon"
-          ></mat-icon>
+          ></mat-icon> -->
+        
+          <mat-icon svgIcon="collabrator-icon" aria-hidden="false" (click)="logoutuser()" aria-label="pin icon"
+          class="collabrator-icon"></mat-icon>
         </mat-toolbar-row>
       </mat-toolbar>
     </div>

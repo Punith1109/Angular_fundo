@@ -21,6 +21,7 @@ export class CreateNoteComponent  {
   title:string =""
   description: string=""
   divWidth: number = 550;
+  noteDetails:any
   @Output() updateList= new EventEmitter <NoteObj>()
 
   constructor(public noteService:NoteService){
@@ -44,5 +45,19 @@ export class CreateNoteComponent  {
       
     }
     
+  }
+  changeColor(color: string): void {
+    this.noteDetails.color = color;
+    console.log(this.noteDetails);
+     const obj1={
+      "noteIdList":[this.noteDetails.id],
+      "color":this.noteDetails.color
+     }
+     this.noteService.colorNoteCall(obj1).subscribe(
+      ()=>{
+      console.log("Color applied successfully");
+     },
+     error => {console.error('Error:',error);}
+    );
   }
 }
