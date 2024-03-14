@@ -1,0 +1,24 @@
+#notes{
+    margin-bottom: 5px;
+}
+
+#reminder{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+#edit{
+    margin-bottom: 5px;
+    margin-top: 7px;
+}
+#archive{
+    margin-bottom: 5px;
+    margin-top: 7px;
+}
+
+#trash{
+    margin-bottom: 5px;
+    margin-top: 7px;
+}
+.span{
+    size: 20px;
+}

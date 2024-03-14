@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NoteService } from '../services/note-service/note-service.service';
+import { ShiftService } from '../services/shift-service/shift.service';
 
 interface NoteObj {
   "title":string,
@@ -8,6 +9,11 @@ interface NoteObj {
   "id":string,
   "isArchived": boolean,
   "isDeleted": boolean
+}
+
+interface Obj{
+"action":string,
+"data":NoteObj
 }
 @Component({
   selector: 'app-createnote',
@@ -22,14 +28,16 @@ export class CreateNoteComponent  {
   description: string=""
   divWidth: number = 550;
   noteDetails:any
-  @Output() updateList= new EventEmitter <NoteObj>()
+  @Output() updateList= new EventEmitter <Obj>();
+selectedColor:string="#ffffff";
 
-  constructor(public noteService:NoteService){
+  constructor(public noteService:NoteService, public shiftService: ShiftService){
     
   }
 
   handleCreateNote(action : string ){
     this.takeNote=!this.takeNote
+    this.shiftService.check(this.takeNote);
     if (action =='close'){
         const noteObj:NoteObj = {
           "title" : this.title,
@@ -39,25 +47,19 @@ export class CreateNoteComponent  {
           "color": "#ffffff",
           "id":"12346"
         };
+        const emitObj={
+          "action":'addNote',
+          "data":noteObj
+        }
       this.noteService.addNoteCall(noteObj).subscribe(result=>{
-        this.updateList.emit(noteObj);
+        this.updateList.emit(emitObj);
       });
+  
       
     }
     
   }
   changeColor(color: string): void {
-    this.noteDetails.color = color;
-    console.log(this.noteDetails);
-     const obj1={
-      "noteIdList":[this.noteDetails.id],
-      "color":this.noteDetails.color
-     }
-     this.noteService.colorNoteCall(obj1).subscribe(
-      ()=>{
-      console.log("Color applied successfully");
-     },
-     error => {console.error('Error:',error);}
-    );
+  this.selectedColor=color
   }
 }

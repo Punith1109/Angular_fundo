@@ -6,34 +6,51 @@
     margin: 100px;
     width: 100vw;
     height: 50vh;
-    /* border: 2px solid black; */
-   
+}
+.note-cards-container.grid-view{
+
 }
 .note-cards-container.list-view {
-    display:flex;
+    display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    height: 67vh;
-    width: 400px !important;
+    
+    
+    /* height: 60vh;
+    width: 400vw !important;
     padding: 20px;
-    position: absolute;
-    /* padding-left: 500px; */
+    position: absolute; */
 }
+
 .note-card{
-    height: 30%;
-    padding: 10px;
-   
-   
+    height: 40%;
+    padding: 7px;
     word-wrap: break-word;
 }
-.notecard-cnt{
+
+.notecard-cnt {
     background-color: black;
 }
-body,html{
+
+body,html {
     height: 100vh;
     width: 100vw;
 }
-.sample{
+
+.sample {
     width: 100%;
     height: 100vh;
+}
+
+#myid {
+    border: 2px solid red;
+    width: calc(100% - 4px); /* Adjust for border width */
+    height: calc(100% - 4px); /* Adjust for border width */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+    display: flex; /* Ensure inner elements fill the container */
+    flex-wrap: wrap; /* Allow inner elements to wrap */
+}
+.note-card{
+    
 }

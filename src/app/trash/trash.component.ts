@@ -34,5 +34,6 @@ export class TrashComponent {
         console.error('Error fetching deleted notes:', error);
       }
     );
+    this.noteService.getDeletedNotesCall();
   }
 }

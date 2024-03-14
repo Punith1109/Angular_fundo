@@ -11,11 +11,12 @@
     margin-left: 110px;
     width: 55%;
     height: 65%;
-    border-radius: 5px;
+  
 }
 
 #icons {
-    margin-left: 50px;
+    margin-left: 10%;
+    margin-right: 4px;
 }
 
 .icon {
@@ -35,4 +36,7 @@
 }
 .container-content {
     margin-left: 10%;
+}
+#logout{
+    margin-left: 70%;
 }

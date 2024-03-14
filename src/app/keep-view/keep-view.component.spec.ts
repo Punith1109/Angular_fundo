@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { KeepViewComponent } from './keep-view.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 describe('KeepViewComponent', () => {
   let component: KeepViewComponent;
@@ -8,7 +9,8 @@ describe('KeepViewComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [KeepViewComponent]
+      declarations: [KeepViewComponent],
+      imports:[MatToolbarModule]
     });
     fixture = TestBed.createComponent(KeepViewComponent);
     component = fixture.componentInstance;

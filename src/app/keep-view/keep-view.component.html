@@ -17,7 +17,8 @@
             class="logo"
           />
           <h1 id="heading">Keep</h1>
-          <input type="search" matInput placeholder="Search" id="search" />
+          <input type="search" matInput placeholder="Search" id="search" >
+          <div id="icons">
           <mat-icon
             aria-hidden="false"
             aria-label="Example refresh icon"
@@ -51,9 +52,10 @@
             fontIcon="apps"
             class="appicon"
           ></mat-icon> -->
-        
-          <mat-icon svgIcon="collabrator-icon" aria-hidden="false" (click)="logoutuser()" aria-label="pin icon"
+       
+          <mat-icon svgIcon="collabrator-icon" id="logout" aria-hidden="false" (click)="logoutuser()" aria-label="pin icon"
           class="collabrator-icon"></mat-icon>
+        </div>
         </mat-toolbar-row>
       </mat-toolbar>
     </div>

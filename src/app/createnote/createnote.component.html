@@ -1,20 +1,22 @@
-<div class="main" >
-    <div class="container">
+<div class="main"  >
+    <div class="container" >
         <div class="input-card" *ngIf="takeNote; else addNote" (click)="handleCreateNote('open')">
+            <div id="take">
             <input type="text" name="text" class="input" pattern="\d+" placeholder="Take a note............">
             <mat-icon svgIcon="tick-icon" aria-hidden="false" aria-label="reminder icon" class="icon"></mat-icon> 
             <mat-icon svgIcon="brush-icon" aria-hidden="false" aria-label="collaborator icon" class="icon1"></mat-icon>             
             <mat-icon svgIcon="img-icon" aria-hidden="false" aria-label="img icon" class="icon2"></mat-icon> 
+            </div>
         </div>
         <ng-template #addNote>
-        <div class="input-card2">
+        <div class="input-card2"  [style.background-color]="selectedColor">
           <div class="create-note-title-cnt">
             <input [(ngModel)]="title" type="text" placeholder="Title">
           </div>
-            <div class="create-note-desc-cnt">
+            <div class="create-note-desc-cnt" [style.background-color]="selectedColor">
             <input [(ngModel)]="description" type="text"class="input1" pattern="\d+" placeholder="Description">
             </div>
-            <div class="icons-div">
+            <div class="icons-div" [style.background-color]="selectedColor">
                 <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="pin icon" class="icon-archive"></mat-icon> 
                 <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="pin icon" class="icon-remainder"></mat-icon> 
                 

@@ -9,6 +9,7 @@
     top: 5%;
     left:30%;
     position: absolute;
+    
 }
 .input-card{
     width: 100%;
@@ -148,4 +149,15 @@
     border-radius: 50%;
     margin: 2px;
     border: 1px solid black;
+  }
+
+  @media only screen and (max-width:500px) {
+    #take{
+        width: 60vw;
+        position: relative;
+        left: 10%;
+    }
+  }
+  #take{
+    /* border: 2px solid red; */
   }

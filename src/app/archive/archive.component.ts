@@ -36,7 +36,7 @@ export class ArchiveComponent {
       this.noteService.getArchivedNotesCall().subscribe(
         (result: any)=>{
           this.archivedNotes=result.data.data;
-          this.filteredArchivedNotes=this.archivedNotes.filter(notes => notes.isArchived && !notes.isDeleted);
+          this.archivedNotes=this.archivedNotes.filter(notes => notes.isArchived && !notes.isDeleted);
          console.log(this.archivedNotes);},
         error => {
           console.error('Error fetching archived notes:', error);
@@ -48,6 +48,10 @@ export class ArchiveComponent {
       console.log('Moving note back to dashboard:', note);
     }
 
-
+updatearchivelist($event:NoteObj){
+this.archivedNotes=this.archivedNotes.filter((noteobj)=>{
+  return noteobj.id!=$event.id;
+})
+}
   }
 

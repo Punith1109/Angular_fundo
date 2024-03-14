@@ -1,16 +1,20 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
-import { CreatenoteComponent } from './createnote.component';
+import { CreateNoteComponent } from 'src/app/createnote/createnote.component';
 
-describe('CreatenoteComponent', () => {
-  let component: CreatenoteComponent;
-  let fixture: ComponentFixture<CreatenoteComponent>;
+describe('CreateNoteComponent', () => {
+  let component: CreateNoteComponent;
+  let fixture: ComponentFixture<CreateNoteComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CreatenoteComponent]
+      declarations: [CreateNoteComponent],
+      providers:[HttpClientModule],
+      imports:[HttpClientModule,FormsModule]
     });
-    fixture = TestBed.createComponent(CreatenoteComponent);
+    fixture = TestBed.createComponent(CreateNoteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

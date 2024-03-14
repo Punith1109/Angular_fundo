@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpService } from '../http-services/http-services';
+import { HttpClientModule } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +50,9 @@ export class NoteService {
     return this.httpService.deletep(data)
   }
   colorNoteCall(data: object){
+    return this.httpService.changeColor(data);
+  }
+  colorNote(data: object){
     return this.httpService.changeColor(data);
   }
 }

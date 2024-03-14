@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NoteService } from './note-service.service';
-import { HttpClientModule } from '@angular/common/http';
+import { ShiftService } from './shift.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-describe('NoteService', () => {
-  let service: NoteService;
+
+describe('ShiftService', () => {
+  let service: ShiftService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule], 
-      providers:[NoteService]
+      providers:[ShiftService]
     });
-    service = TestBed.inject(NoteService);
+    service = TestBed.inject(ShiftService);
   });
 
   it('should be created', () => {

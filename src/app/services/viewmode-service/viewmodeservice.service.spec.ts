@@ -1,13 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ViewmodeserviceService } from './viewmodeservice.service';
+import { ViewModeService } from './viewmodeservice.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('ViewmodeserviceService', () => {
-  let service: ViewmodeserviceService;
+describe('ViewModeService', () => {
+  let service: ViewModeService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ViewmodeserviceService);
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule], 
+      providers:[ViewModeService]
+    });
+    service = TestBed.inject(ViewModeService);
   });
 
   it('should be created', () => {

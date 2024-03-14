@@ -27,6 +27,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ArchiveComponent } from './archive/archive.component';
 
 import { MatMenuModule } from '@angular/material/menu';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { MatMenuModule } from '@angular/material/menu';
     NotecardComponent,
     KeepViewComponent,
     ArchiveComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { MatMenuModule } from '@angular/material/menu';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatProgressSpinnerModule 
+    MatProgressSpinnerModule,
+    
   ],
   providers: [],
   schemas : [CUSTOM_ELEMENTS_SCHEMA],

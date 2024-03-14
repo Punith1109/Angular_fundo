@@ -14,6 +14,8 @@ import { UserService } from '../services/user-services/user-service';
 export class SigninComponent implements OnInit {
   loginForm!: FormGroup;
   submitted: boolean = false;
+  email: string='';
+  password: string='';
 
   constructor(private formBuilder: FormBuilder, public userService:UserService, public router: Router){
     this.loginForm =this.formBuilder.group({

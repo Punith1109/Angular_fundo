@@ -1,40 +1,56 @@
-<div class="notecard-cnt" [style.backgroundColor]="noteDetails.color">
-    <span class="notecard-title-cnt">{{noteDetails.title}}</span>
-    <span class="notecard-desc-cnt">{{noteDetails.description}}</span>
-    <div class="notecard-icons-cnt">
-        <mat-icon svgIcon="archive-icon" *ngIf="!noteDetails.isArchived && !noteDetails.isDeleted" aria-hidden="false"
-            aria-label="pin icon" class="icon-archive" (click)="archiveNote(noteDetails)"></mat-icon>
-        <mat-icon svgIcon="unarchive-icon" *ngIf="noteDetails.isArchived" aria-hidden="false" aria-label="pin icon"
-            class="icon-archive" (click)="getunarcheivedNote(noteDetails)"></mat-icon>
-        <mat-icon *ngIf="!noteDetails.isDeleted" svgIcon="reminder-icon" aria-hidden="false" aria-label="pin icon" class="icon-remainder"></mat-icon>
-       
-        <mat-icon *ngIf="!noteDetails.isDeleted"  svgIcon="collabrator-icon" aria-hidden="false" aria-label="pin icon"
-            class="collabrator-icon"></mat-icon>
+<div class="notecard-cnt" [style.backgroundColor]="noteDetails.color"
+    [ngClass]="{'grid-view': viewMode,'list-view': !viewMode, 'top-shift': !takeNote }">
+
+        <span class="notecard-title-cnt">{{noteDetails.title}}</span>
+        <span class="notecard-desc-cnt">{{noteDetails.description}}</span>
+        <div class="notecard-icons-cnt">
+            <mat-icon svgIcon="archive-icon" *ngIf="!noteDetails.isArchived && !noteDetails.isDeleted"
+                aria-hidden="false" aria-label="pin icon" class="icon-archive"
+                (click)="archiveNote(noteDetails)"></mat-icon>
+            <mat-icon svgIcon="unarchive-icon" *ngIf="noteDetails.isArchived" aria-hidden="false" aria-label="pin icon"
+                class="icon-archive" (click)="getunarcheivedNote(noteDetails)"></mat-icon>
+            <mat-icon *ngIf="!noteDetails.isDeleted" svgIcon="reminder-icon" aria-hidden="false" aria-label="pin icon"
+                class="icon-remainder"></mat-icon>
+
+            <mat-icon *ngIf="!noteDetails.isDeleted" svgIcon="collabrator-icon" aria-hidden="false"
+                aria-label="pin icon" class="collabrator-icon"></mat-icon>
             <mat-icon class="color-palatte-icon" [matMenuTriggerFor]="colorMenu">
                 <mat-icon svgIcon="color-palatte-icon" aria-hidden="false" aria-label="color pallatte icon"></mat-icon>
             </mat-icon>
-            <mat-menu #colorMenu="matMenu" class="colorMenu">                  
+            <mat-menu #colorMenu="matMenu" class="colorMenu">
                 <button mat-menu-item>
-                <button class="colorOptions"  (click)="changeColor('#B4DDD3')" style="background-color: #B4DDD3"></button>
-                <button class="colorOptions"  (click)="changeColor('#E2F6D3')" style="background-color: #E2F6D3"></button>
-                <button class="colorOptions"  (click)="changeColor('#D4E4ED')" style="background-color: #D4E4ED"></button>
-                <button class="colorOptions"  (click)="changeColor('#AECCDC')" style="background-color: #AECCDC"></button>
-                <button class="colorOptions"  (click)="changeColor('#D3BFDB')" style="background-color: #D3BFDB"></button>
-                <button class="colorOptions"  (click)="changeColor('#F6E2DD')" style="background-color: #F6E2DD"></button>
-                <button class="colorOptions"  (click)="changeColor('#E9E3D4')" style="background-color: #E9E3D4"></button>
-                <button class="colorOptions"  (click)="changeColor('#EFEFF1')" style="background-color: #EFEFF1"></button>
+                    <button class="colorOptions" (click)="changeColor('#B4DDD3')"
+                        style="background-color: #B4DDD3"></button>
+                    <button class="colorOptions" (click)="changeColor('#E2F6D3')"
+                        style="background-color: #E2F6D3"></button>
+                    <button class="colorOptions" (click)="changeColor('#D4E4ED')"
+                        style="background-color: #D4E4ED"></button>
+                    <button class="colorOptions" (click)="changeColor('#AECCDC')"
+                        style="background-color: #AECCDC"></button>
+                    <button class="colorOptions" (click)="changeColor('#D3BFDB')"
+                        style="background-color: #D3BFDB"></button>
+                    <button class="colorOptions" (click)="changeColor('#F6E2DD')"
+                        style="background-color: #F6E2DD"></button>
+                    <button class="colorOptions" (click)="changeColor('#E9E3D4')"
+                        style="background-color: #E9E3D4"></button>
+                    <button class="colorOptions" (click)="changeColor('#EFEFF1')"
+                        style="background-color: #EFEFF1"></button>
                 </button>
-          </mat-menu>
-        <mat-icon *ngIf="!noteDetails.isDeleted"  svgIcon="img-icon" aria-hidden="false" aria-label="pin icon" class="img-icon"></mat-icon>
-        <mat-icon  *ngIf="!noteDetails.isDeleted" svgIcon="more-icon" aria-hidden="false" aria-label="pin icon" class="menu-icon"></mat-icon>
+            </mat-menu>
+            <mat-icon *ngIf="!noteDetails.isDeleted" svgIcon="img-icon" aria-hidden="false" aria-label="pin icon"
+                class="img-icon"></mat-icon>
+            <mat-icon *ngIf="!noteDetails.isDeleted" svgIcon="more-icon" aria-hidden="false" aria-label="pin icon"
+                class="menu-icon"></mat-icon>
 
-        <mat-icon *ngIf="!noteDetails.isDeleted" svgIcon="trash-icon" (click)="deleteNote(noteDetails)" aria-hidden="false" aria-label="pin icon"
-            class="undo-icon"></mat-icon>
-        <mat-icon *ngIf="!noteDetails.isDeleted" svgIcon="redo-icon" aria-hidden="false" aria-label="pin icon" class="redo-icon"></mat-icon>
-        <mat-icon svgIcon="restore-icon" (click)="restore(noteDetails)" *ngIf="noteDetails.isDeleted" aria-hidden="false" aria-label="pin icon"
-            class="redo-icon"></mat-icon>
-        <mat-icon svgIcon="deletep-icon" (click)="deleteperment(noteDetails)" *ngIf="noteDetails.isDeleted" aria-hidden="false" aria-label="pin icon"
-            class="redo-icon"></mat-icon>
+            <mat-icon *ngIf="!noteDetails.isDeleted" svgIcon="trash-icon" (click)="deleteNote(noteDetails)"
+                aria-hidden="false" aria-label="pin icon" class="undo-icon"></mat-icon>
+            <mat-icon *ngIf="!noteDetails.isDeleted" svgIcon="redo-icon" aria-hidden="false" aria-label="pin icon"
+                class="redo-icon"></mat-icon>
+            <mat-icon svgIcon="restore-icon" (click)="restore(noteDetails)" *ngIf="noteDetails.isDeleted"
+                aria-hidden="false" aria-label="pin icon" class="redo-icon"></mat-icon>
+            <mat-icon svgIcon="deletep-icon" (click)="deleteperment(noteDetails)" *ngIf="noteDetails.isDeleted"
+                aria-hidden="false" aria-label="pin icon" class="redo-icon"></mat-icon>
 
-    </div>
+        </div>
+    
 </div>
